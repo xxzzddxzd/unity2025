@@ -11,5 +11,6 @@
 - 每个游戏可以单独设置速度，无需再来回调整
 
 # 文件层级
-- /Library/MobileSubstrate/DynamicLibraries，存放unity2025.dylib和unity2025.plist
-- /Library/PreferenceBundles，存放u2025s.bundle
+- /Library/MobileSubstrate/DynamicLibraries，存放unity2025.dylib和unity2025.plist，钩子。
+- /Library/PreferenceBundles，存放u2025s.bundle，设置程序。
+- /Library/PreferenceLoader/Preferences，存放u2025s.plist，设置的入口。
