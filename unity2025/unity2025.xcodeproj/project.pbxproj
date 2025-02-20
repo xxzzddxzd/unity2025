@@ -1,0 +1,432 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B1EEB7C42D631B27009709C8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1EEB7C32D631B27009709C8 /* Foundation.framework */; };
+		B1EEB7E12D631B27009709C8 /* p_inc.h in Headers */ = {isa = PBXBuildFile; fileRef = B1EEB7E02D631B27009709C8 /* p_inc.h */; };
+		B1EEB7E62D631B27009709C8 /* unity2025.mm in Sources */ = {isa = PBXBuildFile; fileRef = B1EEB7E52D631B27009709C8 /* unity2025.mm */; };
+		B1EEB7F42D631ED0009709C8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1EEB7F32D631ED0009709C8 /* UIKit.framework */; };
+		B1EEB7F62D63288E009709C8 /* ToolsManager.h in Headers */ = {isa = PBXBuildFile; fileRef = B1EEB7F52D63288A009709C8 /* ToolsManager.h */; };
+		B1EEB7F82D632893009709C8 /* ToolsManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = B1EEB7F72D632892009709C8 /* ToolsManager.mm */; };
+		B1EEB7FA2D632C44009709C8 /* HookManager.h in Headers */ = {isa = PBXBuildFile; fileRef = B1EEB7F92D632C3D009709C8 /* HookManager.h */; };
+		B1EEB7FC2D632C47009709C8 /* HookManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = B1EEB7FB2D632C47009709C8 /* HookManager.mm */; };
+		B1EEB7FF2D633532009709C8 /* FloatingButton.h in Headers */ = {isa = PBXBuildFile; fileRef = B1EEB7FE2D633531009709C8 /* FloatingButton.h */; };
+		B1EEB8012D633536009709C8 /* FloatingButton.mm in Sources */ = {isa = PBXBuildFile; fileRef = B1EEB8002D633536009709C8 /* FloatingButton.mm */; };
+		B1EEB8032D6335B3009709C8 /* OverlayView.h in Headers */ = {isa = PBXBuildFile; fileRef = B1EEB8022D6335B2009709C8 /* OverlayView.h */; };
+		B1EEB8072D633B01009709C8 /* OverlayView.mm in Sources */ = {isa = PBXBuildFile; fileRef = B1EEB8062D633AFB009709C8 /* OverlayView.mm */; };
+		B1EEB8092D6413FD009709C8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1EEB8082D6413FD009709C8 /* CoreGraphics.framework */; };
+		B1EEB80B2D641469009709C8 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1EEB80A2D641469009709C8 /* QuartzCore.framework */; };
+		B1EEB8492D65BB42009709C8 /* PreferencesManager.h in Headers */ = {isa = PBXBuildFile; fileRef = B1EEB8482D65BB3E009709C8 /* PreferencesManager.h */; };
+		B1EEB84B2D65BB48009709C8 /* PreferencesManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = B1EEB84A2D65BB47009709C8 /* PreferencesManager.mm */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		B1EEB7C02D631B27009709C8 /* unity2025.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = unity2025.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1EEB7C32D631B27009709C8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		B1EEB7C82D631B27009709C8 /* control.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = control.txt; sourceTree = "<group>"; };
+		B1EEB7C92D631B27009709C8 /* control */ = {isa = PBXFileReference; lastKnownFileType = text; path = control; sourceTree = "<group>"; };
+		B1EEB7CB2D631B27009709C8 /* PackageVersion.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = PackageVersion.plist; path = ../PackageVersion.plist; sourceTree = "<group>"; };
+		B1EEB7D22D631B27009709C8 /* unity2025-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "unity2025-Prefix.pch"; path = "../unity2025-Prefix.pch"; sourceTree = "<group>"; };
+		B1EEB7E02D631B27009709C8 /* p_inc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = p_inc.h; sourceTree = "<group>"; };
+		B1EEB7E42D631B27009709C8 /* unity2025.xm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = unity2025.xm; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		B1EEB7E52D631B27009709C8 /* unity2025.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = unity2025.mm; sourceTree = "<group>"; };
+		B1EEB7E92D631B27009709C8 /* unity2025.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = unity2025.plist; sourceTree = "<group>"; };
+		B1EEB7F32D631ED0009709C8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk/System/iOSSupport/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		B1EEB7F52D63288A009709C8 /* ToolsManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ToolsManager.h; sourceTree = "<group>"; };
+		B1EEB7F72D632892009709C8 /* ToolsManager.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ToolsManager.mm; sourceTree = "<group>"; };
+		B1EEB7F92D632C3D009709C8 /* HookManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HookManager.h; sourceTree = "<group>"; };
+		B1EEB7FB2D632C47009709C8 /* HookManager.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = HookManager.mm; sourceTree = "<group>"; };
+		B1EEB7FE2D633531009709C8 /* FloatingButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FloatingButton.h; sourceTree = "<group>"; };
+		B1EEB8002D633536009709C8 /* FloatingButton.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = FloatingButton.mm; sourceTree = "<group>"; };
+		B1EEB8022D6335B2009709C8 /* OverlayView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OverlayView.h; sourceTree = "<group>"; };
+		B1EEB8062D633AFB009709C8 /* OverlayView.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = OverlayView.mm; sourceTree = "<group>"; };
+		B1EEB8082D6413FD009709C8 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
+		B1EEB80A2D641469009709C8 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
+		B1EEB8482D65BB3E009709C8 /* PreferencesManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PreferencesManager.h; sourceTree = "<group>"; };
+		B1EEB84A2D65BB47009709C8 /* PreferencesManager.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = PreferencesManager.mm; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B1EEB7BC2D631B27009709C8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B1EEB80B2D641469009709C8 /* QuartzCore.framework in Frameworks */,
+				B1EEB8092D6413FD009709C8 /* CoreGraphics.framework in Frameworks */,
+				B1EEB7F42D631ED0009709C8 /* UIKit.framework in Frameworks */,
+				B1EEB7C42D631B27009709C8 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B1EEB7B52D631B27009709C8 = {
+			isa = PBXGroup;
+			children = (
+				B1EEB7C52D631B27009709C8 /* unity2025 */,
+				B1EEB7C22D631B27009709C8 /* Frameworks */,
+				B1EEB7C12D631B27009709C8 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B1EEB7C12D631B27009709C8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B1EEB7C02D631B27009709C8 /* unity2025.dylib */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B1EEB7C22D631B27009709C8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B1EEB80A2D641469009709C8 /* QuartzCore.framework */,
+				B1EEB8082D6413FD009709C8 /* CoreGraphics.framework */,
+				B1EEB7F32D631ED0009709C8 /* UIKit.framework */,
+				B1EEB7C32D631B27009709C8 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B1EEB7C52D631B27009709C8 /* unity2025 */ = {
+			isa = PBXGroup;
+			children = (
+				B1EEB7E02D631B27009709C8 /* p_inc.h */,
+				B1EEB7E42D631B27009709C8 /* unity2025.xm */,
+				B1EEB7F52D63288A009709C8 /* ToolsManager.h */,
+				B1EEB7F72D632892009709C8 /* ToolsManager.mm */,
+				B1EEB7F92D632C3D009709C8 /* HookManager.h */,
+				B1EEB7FB2D632C47009709C8 /* HookManager.mm */,
+				B1EEB7FE2D633531009709C8 /* FloatingButton.h */,
+				B1EEB8002D633536009709C8 /* FloatingButton.mm */,
+				B1EEB8022D6335B2009709C8 /* OverlayView.h */,
+				B1EEB8062D633AFB009709C8 /* OverlayView.mm */,
+				B1EEB8482D65BB3E009709C8 /* PreferencesManager.h */,
+				B1EEB84A2D65BB47009709C8 /* PreferencesManager.mm */,
+				B1EEB7E52D631B27009709C8 /* unity2025.mm */,
+				B1EEB7C62D631B27009709C8 /* Package */,
+				B1EEB7CA2D631B27009709C8 /* Supporting Files */,
+			);
+			path = unity2025;
+			sourceTree = "<group>";
+		};
+		B1EEB7C62D631B27009709C8 /* Package */ = {
+			isa = PBXGroup;
+			children = (
+				B1EEB7C72D631B27009709C8 /* DEBIAN */,
+				B1EEB7CC2D631B27009709C8 /* Library */,
+			);
+			path = Package;
+			sourceTree = "<group>";
+		};
+		B1EEB7C72D631B27009709C8 /* DEBIAN */ = {
+			isa = PBXGroup;
+			children = (
+				B1EEB7C82D631B27009709C8 /* control.txt */,
+				B1EEB7C92D631B27009709C8 /* control */,
+			);
+			path = DEBIAN;
+			sourceTree = "<group>";
+		};
+		B1EEB7CA2D631B27009709C8 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B1EEB7CB2D631B27009709C8 /* PackageVersion.plist */,
+				B1EEB7D22D631B27009709C8 /* unity2025-Prefix.pch */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B1EEB7CC2D631B27009709C8 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				B1EEB7E72D631B27009709C8 /* MobileSubstrate */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		B1EEB7E72D631B27009709C8 /* MobileSubstrate */ = {
+			isa = PBXGroup;
+			children = (
+				B1EEB7E82D631B27009709C8 /* DynamicLibraries */,
+			);
+			path = MobileSubstrate;
+			sourceTree = "<group>";
+		};
+		B1EEB7E82D631B27009709C8 /* DynamicLibraries */ = {
+			isa = PBXGroup;
+			children = (
+				B1EEB7E92D631B27009709C8 /* unity2025.plist */,
+			);
+			path = DynamicLibraries;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		B1EEB7BD2D631B27009709C8 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B1EEB7FA2D632C44009709C8 /* HookManager.h in Headers */,
+				B1EEB8492D65BB42009709C8 /* PreferencesManager.h in Headers */,
+				B1EEB8032D6335B3009709C8 /* OverlayView.h in Headers */,
+				B1EEB7E12D631B27009709C8 /* p_inc.h in Headers */,
+				B1EEB7FF2D633532009709C8 /* FloatingButton.h in Headers */,
+				B1EEB7F62D63288E009709C8 /* ToolsManager.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		B1EEB7BF2D631B27009709C8 /* unity2025 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B1EEB7EC2D631B27009709C8 /* Build configuration list for PBXNativeTarget "unity2025" */;
+			buildPhases = (
+				B1EEB7BA2D631B27009709C8 /* ShellScript */,
+				B1EEB7BB2D631B27009709C8 /* Sources */,
+				B1EEB7BC2D631B27009709C8 /* Frameworks */,
+				B1EEB7BD2D631B27009709C8 /* Headers */,
+				B1EEB7BE2D631B27009709C8 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = unity2025;
+			packageProductDependencies = (
+			);
+			productName = unity2025;
+			productReference = B1EEB7C02D631B27009709C8 /* unity2025.dylib */;
+			productType = "com.apple.product-type.library.dynamic";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B1EEB7B62D631B27009709C8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastUpgradeCheck = 1620;
+				TargetAttributes = {
+					B1EEB7BF2D631B27009709C8 = {
+						CreatedOnToolsVersion = 16.2;
+					};
+				};
+			};
+			buildConfigurationList = B1EEB7B92D631B27009709C8 /* Build configuration list for PBXProject "unity2025" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B1EEB7B52D631B27009709C8;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = B1EEB7C12D631B27009709C8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B1EEB7BF2D631B27009709C8 /* unity2025 */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B1EEB7BA2D631B27009709C8 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/opt/iOSOpenDev/bin/iosod --xcbp-logos";
+		};
+		B1EEB7BE2D631B27009709C8 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/opt/iOSOpenDev/bin/iosod --xcbp";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B1EEB7BB2D631B27009709C8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B1EEB8072D633B01009709C8 /* OverlayView.mm in Sources */,
+				B1EEB7E62D631B27009709C8 /* unity2025.mm in Sources */,
+				B1EEB8012D633536009709C8 /* FloatingButton.mm in Sources */,
+				B1EEB7FC2D632C47009709C8 /* HookManager.mm in Sources */,
+				B1EEB84B2D65BB48009709C8 /* PreferencesManager.mm in Sources */,
+				B1EEB7F82D632893009709C8 /* ToolsManager.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		B1EEB7EA2D631B27009709C8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch (*) .DS_Store CVS .svn .git .hg *.xcodeproj *.xcode *.pbproj *.pbxproj";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(iOSOpenDevPath)/frameworks/**",
+					"$(SDKROOT)/System/Library/PrivateFrameworks",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(iOSOpenDevPath)/include/**";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LIBRARY_SEARCH_PATHS = "$(iOSOpenDevPath)/lib/**";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = NO;
+				iOSOpenDevPath = /opt/iOSOpenDev;
+			};
+			name = Debug;
+		};
+		B1EEB7EB2D631B27009709C8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch (*) .DS_Store CVS .svn .git .hg *.xcodeproj *.xcode *.pbproj *.pbxproj";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(iOSOpenDevPath)/frameworks/**",
+					"$(SDKROOT)/System/Library/PrivateFrameworks",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(iOSOpenDevPath)/include/**";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LIBRARY_SEARCH_PATHS = "$(iOSOpenDevPath)/lib/**";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				iOSOpenDevPath = /opt/iOSOpenDev;
+			};
+			name = Release;
+		};
+		B1EEB7ED2D631B27009709C8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CODE_SIGN_IDENTITY = x5;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "unity2025/unity2025-Prefix.pch";
+				INSTALL_PATH = /Library/MobileSubstrate/DynamicLibraries;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+					/opt/iOSOpenDev/lib/libsubstrate.dylib,
+					"-lz.1.2.8",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				iOSOpenDevBuildPackageOnAnyBuild = NO;
+				iOSOpenDevCopyOnBuild = NO;
+				iOSOpenDevDevice = "";
+				iOSOpenDevInstallOnAnyBuild = NO;
+				iOSOpenDevInstallOnProfiling = YES;
+				iOSOpenDevRespringOnInstall = YES;
+				iOSOpenDevUsePackageVersionPList = YES;
+			};
+			name = Debug;
+		};
+		B1EEB7EE2D631B27009709C8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CODE_SIGN_IDENTITY = x5;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "unity2025/unity2025-Prefix.pch";
+				INSTALL_PATH = /Library/MobileSubstrate/DynamicLibraries;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+					/opt/iOSOpenDev/lib/libsubstrate.dylib,
+					"-lz.1.2.8",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				iOSOpenDevBuildPackageOnAnyBuild = NO;
+				iOSOpenDevCopyOnBuild = NO;
+				iOSOpenDevDevice = "";
+				iOSOpenDevInstallOnAnyBuild = NO;
+				iOSOpenDevInstallOnProfiling = YES;
+				iOSOpenDevRespringOnInstall = YES;
+				iOSOpenDevUsePackageVersionPList = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B1EEB7B92D631B27009709C8 /* Build configuration list for PBXProject "unity2025" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B1EEB7EA2D631B27009709C8 /* Debug */,
+				B1EEB7EB2D631B27009709C8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B1EEB7EC2D631B27009709C8 /* Build configuration list for PBXNativeTarget "unity2025" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B1EEB7ED2D631B27009709C8 /* Debug */,
+				B1EEB7EE2D631B27009709C8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B1EEB7B62D631B27009709C8 /* Project object */;
+}
