@@ -14,3 +14,6 @@
 - /Library/MobileSubstrate/DynamicLibraries，存放unity2025.dylib和unity2025.plist，钩子。
 - /Library/PreferenceBundles，存放u2025s.bundle，设置程序。
 - /Library/PreferenceLoader/Preferences，存放u2025s.plist，设置的入口。
+
+# 不同点
+- 放弃了内存特征搜索。deepseek搞不定这个代码。
