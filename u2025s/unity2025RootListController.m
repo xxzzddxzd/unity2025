@@ -2,112 +2,98 @@
 #import "PreferencesManager.h"
 #import "p_inc.h"
 
-
-@implementation unity2025RootListController{
-	NSMutableDictionary *_config;
+@implementation unity2025RootListController {
+    NSMutableDictionary *_config;
 }
 
 - (NSArray *)specifiers {
     if (!_specifiers) {
-        // 加载基础配置
+        // 加载基础配置（全局开关 + 变速值）
         NSMutableArray *specs = [[self loadSpecifiersFromPlistName:@"root" target:self] mutableCopy];
         
-        // 读取已保存配置
-        NSDictionary *savedApps = _config[@"appsetting"];
+        // 重新加载以获取最新数据
+        _config = [[PreferenceConfig sharedInstance] AllSettings];
         
-        // 生成已配置条目
-        [savedApps enumerateKeysAndObjectsUsingBlock:^(NSString *bundleID, NSDictionary *appConfig, BOOL *stop) {
-            PSSpecifier *spec = [self _createAppSpecifier:bundleID];
+        // 从文件获取已检测的 Unity app 列表
+        NSDictionary *detectedApps = [[PreferenceConfig sharedInstance] detectedApps];
+        NSDictionary *appSettings = _config[@"appsetting"];
+        
+        // 合并：detected_apps 和 appsetting 中的 app 都要显示
+        NSMutableSet *allBundleIDs = [NSMutableSet setWithArray:detectedApps.allKeys];
+        [allBundleIDs addObjectsFromArray:appSettings.allKeys];
+        
+        XLog(@"Building specifiers: detectedApps=%@, appSettings=%@, allBundleIDs=%@",
+             detectedApps, appSettings, allBundleIDs);
+        
+        for (NSString *bundleID in allBundleIDs) {
+            // 如果该 app 还没有 appsetting 配置，自动创建默认配置
+            if (!appSettings[bundleID]) {
+                [[PreferenceConfig sharedInstance] addNewApp:bundleID];
+                [[PreferenceConfig sharedInstance] saveSettings];
+                _config = [[PreferenceConfig sharedInstance] AllSettings];
+            }
+            
+            NSString *displayName = detectedApps[bundleID] ?: bundleID;
+            PSSpecifier *spec = [self _createAppSpecifier:bundleID
+                                             displayName:displayName];
             [specs addObject:spec];
-        }];
+        }
         
         _specifiers = specs;
-        
     }
     return _specifiers;
 }
 
 #pragma mark - 创建规范器
-- (PSSpecifier *)_createAppSpecifier:(NSString *)bundleID{
-	ALApplicationList *appList = [ALApplicationList sharedApplicationList];
-    PSSpecifier *spec = [PSSpecifier 
-        preferenceSpecifierNamed:appList.applications[bundleID]
+
+- (PSSpecifier *)_createAppSpecifier:(NSString *)bundleID
+                         displayName:(NSString *)displayName {
+    PSSpecifier *spec = [PSSpecifier
+        preferenceSpecifierNamed:displayName
         target:self
-        set:nil //@selector(setPreferenceValue:specifier:)
-        get:nil //@selector(readPreferenceValue:)
+        set:nil
+        get:nil
         detail:[AppSettingController class]
         cell:PSLinkCell
         edit:nil];
     
-    // 关联配置键
     [spec setProperty:bundleID forKey:@"bundleIdentifier"];
-    XLog(@"_createAppSpecifier setProperty %@, name:%@",bundleID,appList.applications[bundleID])
-    [spec setProperty:@YES forKey:@"enabled"];    
-    [spec setProperty:[appList iconOfSize:ALApplicationIconSizeSmall forDisplayIdentifier:bundleID] forKey:@"iconImage"];
+    [spec setProperty:@YES forKey:@"enabled"];
+    
+    XLog(@"Created specifier for %@ (%@)", bundleID, displayName);
     return spec;
 }
 
-#pragma mark - Unity应用扫描
-- (void)rescan:(id)sender {
-	dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0), ^{
-	    NSMutableArray *bundleIDs = [NSMutableArray new];
-	    NSString *bundleRoot = @"/var/containers/Bundle/Application";
-	    NSMutableDictionary *appSettings = _config[@"appsetting"];
-	    
-	    // 遍历一级容器目录
-	    for (NSString *uuid in [[NSFileManager defaultManager] contentsOfDirectoryAtPath:bundleRoot error:nil]) {
-	        NSString *containerPath = [bundleRoot stringByAppendingPathComponent:uuid];
-	        
-	        // 遍历二级应用包目录
-	        NSDirectoryEnumerator *enumerator = [[NSFileManager defaultManager] enumeratorAtPath:containerPath];
-	        NSString *appPackage;
-	        while ((appPackage = [enumerator nextObject])) {
-	            // 过滤.app目录
-	            if (![[appPackage pathExtension] isEqualToString:@"app"]) continue;
-	            
-	            NSString *fullAppPath = [containerPath stringByAppendingPathComponent:appPackage];
-	            NSString *frameworkPath = [fullAppPath stringByAppendingPathComponent:@"Frameworks/UnityFramework.framework"];
-	            XLog(@"frameworkPath %@",frameworkPath)
-	            // 验证Unity特征
-	            if ([[NSFileManager defaultManager] fileExistsAtPath:frameworkPath]) {
-	                NSString *infoPlistPath = [fullAppPath stringByAppendingPathComponent:@"Info.plist"];
-	                NSDictionary *info = [NSDictionary dictionaryWithContentsOfFile:infoPlistPath];
-	                
-	                if (info[@"CFBundleIdentifier"] ) {
-	                    [bundleIDs addObject:info[@"CFBundleIdentifier"]];
-	                    XLog(@"发现Unity应用：%@ at %@", info[@"CFBundleIdentifier"], appPackage);
-	                    if (!appSettings[info[@"CFBundleIdentifier"]]) {
-			                [[PreferenceConfig sharedInstance] addNewApp:info[@"CFBundleIdentifier"]];
-			                [[PreferenceConfig sharedInstance] saveSettings];
-			                // 实时插入新条目
-			                // dispatch_async(dispatch_get_main_queue(), ^{
-			                //     PSSpecifier *spec = [self _createAppSpecifier:info[@"CFBundleIdentifier"]];
-			                //     [_specifiers addObject:spec];
-			                //     [self reloadSpecifier:spec];
-			                // });
-			            }
-	                }
-	                break; // 单个容器只处理第一个.app
-	            }
-	        }
-	    }
-    });
-}
+#pragma mark - 配置读写
 
 - (id)readPreferenceValue:(PSSpecifier *)specifier {
-	return [_config objectForKey:[specifier identifier]];
+    // 始终从最新的 AllSettings 读取
+    _config = [[PreferenceConfig sharedInstance] AllSettings];
+    return [_config objectForKey:[specifier identifier]];
 }
 
 - (void)setPreferenceValue:(id)value forSpecifier:(PSSpecifier *)specifier {
-	[_config setObject:value forKey:[specifier identifier]];
-	[[PreferenceConfig sharedInstance] saveSettings];
+    _config = [[PreferenceConfig sharedInstance] AllSettings];
+    [_config setObject:value forKey:[specifier identifier]];
+    [[PreferenceConfig sharedInstance] saveSettings];
 }
+
+#pragma mark - 生命周期
 
 - (instancetype)init {
-	if((self = [super init])) {
-		_config = [[PreferenceConfig sharedInstance] AllSettings] ;
-	}
-
-	return self;
+    if ((self = [super init])) {
+        _config = [[PreferenceConfig sharedInstance] AllSettings];
+    }
+    return self;
 }
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    // 重新加载配置和刷新列表
+    [[PreferenceConfig sharedInstance] reloadSettings];
+    _config = [[PreferenceConfig sharedInstance] AllSettings];
+    _specifiers = nil;  // 强制重建 specifiers
+    [self reloadSpecifiers];
+}
+
 @end

@@ -33,16 +33,9 @@
             <string>PSGroupCell</string>
             <key>label</key>
             <string>UNITY APPLICATIONS</string>
+            <key>footerText</key>
+            <string>Unity 游戏会在首次启动时自动出现在此列表中</string>
         </dict>
-        
-		<dict>
-			<key>cell</key>
-			<string>PSButtonCell</string>
-			<key>action</key>
-			<string>rescan:</string>
-			<key>label</key>
-			<string>重新执行扫描</string>
-		</dict>
     </array>
 </dict>
 </plist>

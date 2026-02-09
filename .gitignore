@@ -3,3 +3,11 @@ unity2025/.DS_Store
 .DS_Store
 unity2025/LatestBuild
 unity2025setting/LatestBuild
+
+# Theos build artifacts
+.theos/
+packages/
+obj/
+
+# Example game binaries (too large for git)
+example/
