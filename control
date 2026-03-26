@@ -1,0 +1,9 @@
+Package: x5.unity2025
+Name: unity2025
+Version: 0.2-1
+Architecture: iphoneos-arm64
+Description: Unity game speed control for Dopamine rootless jailbreak
+Maintainer: xuzhengda
+Author: xuzhengda
+Depends: firmware (>= 15.0), ellekit, preferenceloader
+Section: Tweaks
