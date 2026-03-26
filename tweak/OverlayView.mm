@@ -27,6 +27,27 @@
 }
 @end
 
+// 跟随游戏主 VC 的旋转方向，避免悬浮框在竖屏游戏中旋转
+@interface PassthroughViewController : UIViewController
+@end
+
+@implementation PassthroughViewController
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
+    UIViewController *appVC = [UIApplication sharedApplication].keyWindow.rootViewController;
+    if (appVC && appVC != self) {
+        return [appVC supportedInterfaceOrientations];
+    }
+    return UIInterfaceOrientationMaskAll;
+}
+- (BOOL)shouldAutorotate {
+    UIViewController *appVC = [UIApplication sharedApplication].keyWindow.rootViewController;
+    if (appVC && appVC != self) {
+        return [appVC shouldAutorotate];
+    }
+    return YES;
+}
+@end
+
 @implementation OverlayView
 
 + (instancetype)sharedInstance {
@@ -89,7 +110,7 @@
         overlayWindow.userInteractionEnabled = YES;
         
         // 必须设置 rootViewController（iOS 13+ 要求）
-        UIViewController *vc = [[UIViewController alloc] init];
+        PassthroughViewController *vc = [[PassthroughViewController alloc] init];
         vc.view.backgroundColor = [UIColor clearColor];
         vc.view.userInteractionEnabled = YES;
         overlayWindow.rootViewController = vc;
