@@ -11,6 +11,6 @@ u2025s_FRAMEWORKS = UIKit
 u2025s_PRIVATE_FRAMEWORKS = Preferences
 u2025s_INSTALL_PATH = /Library/PreferenceBundles
 u2025s_CFLAGS = -fobjc-arc -Wno-deprecated-declarations
-u2025s_LDFLAGS = -F$(THEOS)/vendor/lib/
+u2025s_LDFLAGS = -F$(THEOS)/vendor/lib/ -F$(THEOS)/sdks/iPhoneOS16.5.sdk/System/Library/PrivateFrameworks/
 
 include $(THEOS_MAKE_PATH)/bundle.mk
